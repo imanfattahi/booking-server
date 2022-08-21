@@ -1,4 +1,5 @@
 var express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 var app = express();
 var fs = require("fs");
@@ -7,6 +8,9 @@ faker.locale = 'de'
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors({
+  origin: '*' // todo - not good idea to use * ;)
+}))
 
 const _host = '127.0.0.1';
 const _port = '3000';
